@@ -61,18 +61,10 @@ const Form = ({ setFormValues }) => {
     setAgree(false);
   };
 
-  const success = () => (
-    <div className="card">
-      <div>
-        <span>Name: </span>
-      </div>
-    </div>
-  );
-
   const handleSubmit = (event) => {
     event.preventDefault(); // чтобы не перезагружалась страница
     if (Object.keys(errors).length === 0) {
-      setFormValues((state) => [
+      setFormValues((state: []) => [
         ...state,
         {
           firstName,
@@ -83,7 +75,6 @@ const Form = ({ setFormValues }) => {
           gender,
         },
       ]);
-      success();
       reset();
     }
   };
