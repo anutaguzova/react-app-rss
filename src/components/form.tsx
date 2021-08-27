@@ -62,7 +62,7 @@ const Form = ({ setFormValues }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // чтобы не перезагружалась страница
+    event.preventDefault();
     if (Object.keys(errors).length === 0) {
       setFormValues((state: []) => [
         ...state,
