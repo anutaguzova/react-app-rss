@@ -9,5 +9,5 @@ export function Search() {
       <input type="text" className="searchTerm" placeholder="Search for..." />
       <button type="submit" className="searchButton"></button>
     </div>
-  )
+  );
 }

@@ -44,6 +44,7 @@ body {
 .card:hover .content {
   transform: rotateY(180deg);
   transition: transform 0.5s;
+  cursor: pointer;
 }
 
 .front,
