@@ -1,7 +1,7 @@
 import { State } from './form';
 
 interface CardProps {
-  Item: State
+  Item: State;
 }
 
 const Card: React.FC<CardProps> = ({ Item }) => (

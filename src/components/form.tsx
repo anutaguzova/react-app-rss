@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 
 export interface State {
-  firstName: string
-  lastName: string
-  birthDate: string
-  country: string
-  agree: boolean
-  gender: string
+  firstName: string;
+  lastName: string;
+  birthDate: string;
+  country: string;
+  agree: boolean;
+  gender: string;
 }
 
 interface Errors {
-  firstName?: string
-  lastName?: string
-  birthDate?: string
-  country?: string
-  agree?: boolean
-  gender?: string
+  firstName?: string;
+  lastName?: string;
+  birthDate?: string;
+  country?: string;
+  agree?: boolean;
+  gender?: string;
 }
 
 const Form = ({ setFormValues }) => {
@@ -95,7 +95,9 @@ const Form = ({ setFormValues }) => {
               type="text"
               name="firstName"
               value={firstName}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setFirstName(e.target.value)
+              }
             />
           </label>
           <label className="item" htmlFor="lastName">
@@ -109,7 +111,9 @@ const Form = ({ setFormValues }) => {
               type="text"
               name="lastName"
               value={lastName}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setLastName(e.target.value)
+              }
             />
           </label>
           <label className="item" htmlFor="birthDate">
@@ -123,7 +127,9 @@ const Form = ({ setFormValues }) => {
               type="date"
               name="birthDate"
               value={birthDate}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBirthDate(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setBirthDate(e.target.value)
+              }
             />
           </label>
           <label className="item" htmlFor="country">
