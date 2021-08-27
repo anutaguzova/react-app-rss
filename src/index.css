@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700&display=swap&subset=cyrillic');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 100%;
+  font-family: 'Helvetica', arial, sans-serif;
+  text-align: center;
+  background-color: #f8f7f5;
+}
+
+.App {
+  max-width: 1300px;
+  margin: 20px auto;
+}
+
+.input,
+.date {
+  border: grey;
+  border-radius: 5px;
+  width: 380px;
+  height: 30px;
+  background: rgb(218, 216, 216);
+  font-size: 1.1em;
+  letter-spacing: 0.2em;
+  padding: 5px 10px;
+}
+
+.radios {
+  margin: 20px 0;
+}
+.radios label {
+  margin-right: 10px;
+}
+
+.button {
+  width: 400px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin: 10px;
+  font-size: 1.1em;
+  letter-spacing: 0.2em;
+  overflow: hidden;
+  box-shadow: 0 4px 12px 0 rgba(152, 160, 180, 10);
+  /* background-image: linear-gradient(to right, #E040FB, #00BCD4); */
+  background: rgb(206, 160, 240);
+}
+
+.button:active,
+.button:hover {
+  cursor: pointer;
+}
+
+/* articles */
+.wrapper {
+  width: auto;
+  margin: 20px auto;
+}
+
+.table {
+  width: 100%;
+  display: block;
+  font-size: 115%;
+  overflow: auto;
+  margin: 0 10px;
+}
+
+th {
+  background-color: rgb(112, 196, 105);
+  color: white;
+  font-weight: normal;
+  padding: 20px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+td {
+  background-color: rgb(238, 238, 238);
+  color: rgb(111, 111, 111);
+  padding: 10px 20px;
+  font-size: 0.7em;
+}
