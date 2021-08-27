@@ -17,7 +17,7 @@ const App: FC = () => (
             <Route path={path} exact key={path.toString()}>
               {Component}
             </Route>
-          ),
+          )
         )}
         <Redirect to="/" />
       </Switch>

@@ -18,7 +18,7 @@ const Dashboard: FC = () => {
     setIsLoading(true);
     try {
       const response: AxiosResponse<Get200Articles> = await axios.get(
-        `v2/everything?q=${searchValue}&apiKey=${API_KEY}&sortBy=${sortBy}&pageSize=10&page=${page}`,
+        `v2/everything?q=${searchValue}&apiKey=${API_KEY}&sortBy=${sortBy}&pageSize=10&page=${page}`
       );
       setArts(response.data.articles);
     } catch (err) {
@@ -46,8 +46,7 @@ const Dashboard: FC = () => {
               value={SortType.relevancy}
               checked={sortBy === SortType.relevancy}
               onChange={() => setSortBy(SortType.relevancy)}
-            />
-            {' '}
+            />{' '}
             relevancy
           </label>
           <label>
@@ -56,8 +55,7 @@ const Dashboard: FC = () => {
               value={SortType.popularity}
               checked={sortBy === SortType.popularity}
               onChange={() => setSortBy(SortType.popularity)}
-            />
-            {' '}
+            />{' '}
             popularity
           </label>
           <label>
@@ -66,8 +64,7 @@ const Dashboard: FC = () => {
               value={SortType.publishedAt}
               checked={sortBy === SortType.publishedAt}
               onChange={() => setSortBy(SortType.publishedAt)}
-            />
-            {' '}
+            />{' '}
             publishedAt
           </label>
         </div>

@@ -1,14 +1,14 @@
 export interface Article {
-  author: string
-  content: string
-  publishedAt: string
-  title: string
-  urlToImage: string
-  url: string
+  author: string;
+  content: string;
+  publishedAt: string;
+  title: string;
+  urlToImage: string;
+  url: string;
 }
 
 export interface Get200Articles {
-  articles: Article[]
+  articles: Article[];
 }
 
 export enum SortType {

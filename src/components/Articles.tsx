@@ -1,12 +1,10 @@
-import {
-  ChangeEvent, FC, useState, useEffect,
-} from 'react';
+import { ChangeEvent, FC, useState, useEffect } from 'react';
 import { Article } from '../types';
 
 interface ArticleProps {
-  articles: Article[]
-  page: number
-  onChangeP: (pageInput: number) => void
+  articles: Article[];
+  page: number;
+  onChangeP: (pageInput: number) => void;
 }
 
 const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
@@ -44,9 +42,7 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
                 <th>URL</th>
               </tr>
             </thead>
-            {articles.map(({
-              author, title, publishedAt, urlToImage, content, url,
-            }) => (
+            {articles.map(({ author, title, publishedAt, urlToImage, content, url }) => (
               <tbody
                 key={{
                   author,
