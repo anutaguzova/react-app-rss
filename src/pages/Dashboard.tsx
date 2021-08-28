@@ -1,12 +1,12 @@
 import { AxiosResponse } from 'axios';
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import Articles from '../components/Articles';
 import axios from '../services/api';
 import { Article, Get200Articles, SortType } from '../types';
 
 const API_KEY = '205d2020c1c94cf99e4ae7c255338e75';
 
-const Dashboard: FC = () => {
+const Dashboard = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [arts, setArts] = useState<Article[]>([]);

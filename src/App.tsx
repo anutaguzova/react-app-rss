@@ -1,28 +1,18 @@
-import { FC, Suspense } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
+import { BrowserRouter } from 'react-router-dom';
+import Approuter from './components/Approuter';
+import Navbar from './components/Navbar';
 
-const navData = [
-  {
-    Component: <Dashboard />,
-    path: '/',
-  },
-];
-const App: FC = () => (
-  <div className="App">
-    <Suspense fallback={<div>Loading...</div>}>
-      <Switch>
-        {navData.map(
-          ({ Component, path }): JSX.Element => (
-            <Route path={path} exact key={path.toString()}>
-              {Component}
-            </Route>
-          )
-        )}
-        <Redirect to="/" />
-      </Switch>
-    </Suspense>
-  </div>
-);
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <main>
+        <div className="App">
+          <Approuter />
+        </div>
+      </main>
+    </BrowserRouter>
+  );
+};
 
 export default App;
