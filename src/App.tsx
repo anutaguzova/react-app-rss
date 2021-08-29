@@ -14,7 +14,7 @@ const App: FC = () => (
       <Switch>
         {navData.map(
           ({ Component, path }): JSX.Element => (
-            <Route path={path} exact key={path.toString()}>
+            <Route path={path} exact key={path + Math.random()}>
               {Component}
             </Route>
           )

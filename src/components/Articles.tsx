@@ -43,16 +43,7 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
               </tr>
             </thead>
             {articles.map(({ author, title, publishedAt, urlToImage, content, url }) => (
-              <tbody
-                key={{
-                  author,
-                  title,
-                  publishedAt,
-                  urlToImage,
-                  content,
-                  url,
-                }}
-              >
+              <tbody key={content + Math.random()}>
                 <tr>
                   <td>{title}</td>
                   <td>{author}</td>
@@ -63,7 +54,7 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
                   </td>
                   <td>
                     <a href={url} target="_blank" rel="noreferrer">
-                      link
+                      Link
                     </a>
                   </td>
                 </tr>
