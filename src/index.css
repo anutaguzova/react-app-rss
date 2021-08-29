@@ -8,10 +8,11 @@ body {
   font-family: 'Helvetica', arial, sans-serif;
   text-align: center;
   background-color: #f8f7f5;
+  overflow: hidden;
 }
 
 .App {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 20px auto;
 }
 
@@ -55,13 +56,8 @@ body {
 }
 
 /* articles */
-.wrapper {
-  width: auto;
-  margin: 20px auto;
-}
-
 .table {
-  width: 100%;
+  width: 95vw;
   display: block;
   font-size: 115%;
   overflow: auto;
