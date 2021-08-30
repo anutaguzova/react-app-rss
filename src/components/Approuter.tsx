@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Route, Redirect, Switch, useLocation } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Dashboard from '../pages/Dashboard';
 import About from '../pages/About';
 import Error from '../pages/Error';
@@ -24,7 +24,7 @@ const Content = (): JSX.Element => {
   const location = useLocation();
   return (
     <TransitionGroup>
-      <CSSTransition timeout={10} classNames="example" key={location.key}>
+      <CSSTransition timeout={100} classNames="fade" key={location.key}>
         <Switch>
           {navData.map(
             ({ Component, path }): JSX.Element => (

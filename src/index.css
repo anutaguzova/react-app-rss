@@ -8,12 +8,12 @@ body {
   font-family: 'Helvetica', arial, sans-serif;
   text-align: center;
   background-color: #f8f7f5;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-.App {
-  max-width: 1400px;
-  margin: 20px auto;
+#root {
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .input,
@@ -57,11 +57,8 @@ body {
 
 /* articles */
 .table {
-  width: 95vw;
   display: block;
   font-size: 115%;
-  overflow: auto;
-  margin: 0 10px;
 }
 
 th {
@@ -85,12 +82,11 @@ td {
 
 .navbar {
   height: 50px;
-  width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   padding: 0 30px;
-  background: rgb(192, 191, 191);
+  margin-bottom: 10px;
 }
 
 .navbar__items a {
@@ -104,22 +100,23 @@ td {
 }
 
 /* animation */
-.example-enter {
-  opacity: 0.01;
+
+.fade-enter {
+  transform: translateX(-100%);
+  z-index: 1;
 }
 
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: all 1000ms ease-in;
+.fade-enter.fade-enter-active {
+  transform: translateX(0);
+  transition: all 0.1s ease;
 }
 
-.example-leave {
-  opacity: 1;
+.fade-exit{
+  transform: translateX(0);
 }
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: all 1000ms ease-out;
+.fade-exit.fade-exit-active{
+  transform: translateX(100%);
+  transition: all 0.1s ease;
 }
 
 .active {

@@ -4,7 +4,7 @@ import Articles from '../components/Articles';
 import axios from '../services/api';
 import { Article, Get200Articles, SortType } from '../types';
 
-const API_KEY = '205d2020c1c94cf99e4ae7c255338e75';
+const API_KEY = '16b312231ce9476ea9b1b986a570563a';
 
 const Dashboard = () => {
   const [searchValue, setSearchValue] = useState<string>('');
