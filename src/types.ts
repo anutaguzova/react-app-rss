@@ -9,6 +9,7 @@ export interface Article {
 
 export interface Get200Articles {
   articles: Article[];
+  totalResults: number;
 }
 
 export enum SortType {

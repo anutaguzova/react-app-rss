@@ -8,6 +8,7 @@ body {
   font-family: 'Helvetica', arial, sans-serif;
   text-align: center;
   background-color: #f8f7f5;
+  overflow-x: hidden;
 }
 
 .App {
@@ -83,4 +84,41 @@ td {
   color: rgb(111, 111, 111);
   padding: 10px 20px;
   font-size: 0.7em;
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.input__page {
+  border: grey;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+  background: rgb(218, 216, 216);
+  font-size: 1.5em;
+  letter-spacing: 0.2em;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.item select {
+  border: grey;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+  background: rgb(218, 216, 216);
+  font-size: 1.5em;
+  letter-spacing: 0.2em;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.total {
+  font-size: 1.5em;
+  font-weight: bold;
 }
