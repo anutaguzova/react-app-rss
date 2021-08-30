@@ -75,6 +75,7 @@ const Form = ({ setFormValues }) => {
           gender,
         },
       ]);
+      alert('data saved succesfully');
       reset();
     }
   };
@@ -193,7 +194,6 @@ const Form = ({ setFormValues }) => {
               </p>
             </div>
           </label>
-
           <div className="button">
             <input type="submit" value="Send" />
           </div>
