@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 20px;
-  line-height: 100%;
+  line-height: 200%;
   font-family: 'Helvetica', arial, sans-serif;
   text-align: center;
   background-color: #f8f7f5;
@@ -111,10 +111,10 @@ td {
   transition: all 0.1s ease;
 }
 
-.fade-exit{
+.fade-exit {
   transform: translateX(0);
 }
-.fade-exit.fade-exit-active{
+.fade-exit.fade-exit-active {
   transform: translateX(100%);
   transition: all 0.1s ease;
 }
@@ -124,4 +124,57 @@ td {
   border: 1px solid red;
   border-radius: 5px;
   padding: 2px 5px;
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.input__page {
+  border: grey;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+  background: rgb(218, 216, 216);
+  font-size: 1.5em;
+  letter-spacing: 0.2em;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.item select {
+  border: grey;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+  background: rgb(218, 216, 216);
+  font-size: 1.5em;
+  letter-spacing: 0.2em;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.total {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* details */
+.title {
+  text-decoration: underline;
+  color: rgb(113, 91, 134);
+  padding-bottom: 20px;
+}
+
+.button_details {
+  cursor: pointer;
+}
+
+.search_content {
+  font-size: 1.5em;
+  line-height: ;
 }

@@ -1,26 +1,29 @@
 import { AxiosResponse } from 'axios';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import Articles from '../components/Articles';
 import axios from '../services/api';
 import { Article, Get200Articles, SortType } from '../types';
 
 const API_KEY = '16b312231ce9476ea9b1b986a570563a';
 
-const Dashboard = () => {
+const Dashboard: FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [arts, setArts] = useState<Article[]>([]);
   const [sortBy, setSortBy] = useState<SortType>(SortType.popularity);
   const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<string>('5');
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try {
       const response: AxiosResponse<Get200Articles> = await axios.get(
-        `v2/everything?q=${searchValue}&apiKey=${API_KEY}&sortBy=${sortBy}&pageSize=10&page=${page}`
+        `v2/everything?q=${searchValue}&apiKey=${API_KEY}&sortBy=${sortBy}&pageSize=${pageSize}&page=${page}`
       );
       setArts(response.data.articles);
+      setTotalPages(response.data.totalResults);
     } catch (err) {
       console.error(e);
     } finally {
@@ -75,7 +78,14 @@ const Dashboard = () => {
           {isLoading ? 'Loading...' : 'Search'}
         </button>
       </form>
-      <Articles articles={arts} page={page} onChangeP={(pageInput: number) => setPage(pageInput)} />
+      <Articles
+        articles={arts}
+        page={page}
+        onChangePage={(pageInput: number) => setPage(pageInput)}
+        pageSize={pageSize}
+        onChangeSize={(a) => setPageSize(a)}
+        totalRes={String(Math.ceil(Math.min(+totalPages, 100) / +pageSize))}
+      />
     </div>
   );
 };

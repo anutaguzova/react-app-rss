@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const About = (): JSX.Element => (
+const About: FC = () => (
   <>
     <h1>React</h1>
     <p>React is a free and open-source front-end JS library for building user interfaces or UI components.</p>

@@ -1,14 +1,19 @@
 import { ChangeEvent, FC, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Article } from '../types';
 
 interface ArticleProps {
   articles: Article[];
   page: number;
-  onChangeP: (pageInput: number) => void;
+  pageSize: string;
+  onChangePage: (pageInput: number) => void;
+  onChangeSize: (a: string) => void;
+  totalRes: string;
 }
 
-const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
+const Articles: FC<ArticleProps> = ({ articles, page, onChangePage, pageSize, onChangeSize, totalRes }) => {
   const [artPage, setArtPage] = useState<number | string>('');
+  const [size, setSize] = useState<string>('5');
 
   useEffect(() => {
     setArtPage(page);
@@ -20,17 +25,58 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
     const matchedValue = value.match(regexp);
     if (matchedValue) {
       const newValue = +matchedValue[0];
-      onChangeP(newValue);
+      onChangePage(newValue);
       setArtPage(newValue);
     } else {
       setArtPage('');
     }
   };
 
+  useEffect(() => {
+    setSize(pageSize);
+  }, [pageSize]);
+
+  const handleChoose = (e: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = e.target;
+    if (value === '20') {
+      onChangeSize('20');
+      setSize('20');
+    } else if (value === '10') {
+      onChangeSize('10');
+      setSize('10');
+    } else {
+      onChangeSize('5');
+      setSize('5');
+    }
+  };
+
+  const router = useHistory();
+
   return (
     <div>
       {articles.length ? (
         <div className="wrapper">
+          <div className="pagination">
+            <label className="item" htmlFor="pageSize">
+              <select name="pageSize" value={size} onChange={handleChoose} onBlur={handleChoose}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+            </label>
+            <label htmlFor="input__page">
+              <input
+                name="input__page "
+                className="input__page"
+                type="text"
+                value={artPage}
+                onChange={handleChange}
+              />
+            </label>
+
+            <p className="total"> Total pages: {totalRes}</p>
+          </div>
+
           <table className="table">
             <thead>
               <tr style={{ border: '1px solid #888' }}>
@@ -45,7 +91,11 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
             {articles.map(({ author, title, publishedAt, urlToImage, content, url }) => (
               <tbody key={content + Math.random()}>
                 <tr>
-                  <td>{title}</td>
+                  <td>
+                    <button className="button_details" onClick={() => router.push(`/details/${title}`)}>
+                      {title}
+                    </button>
+                  </td>
                   <td>{author}</td>
                   <td>{content}</td>
                   <td>{publishedAt}</td>
@@ -62,7 +112,6 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangeP }) => {
             ))}
             <tfoot />
           </table>
-          <input type="text" value={artPage} onChange={handleChange} />
         </div>
       ) : null}
     </div>

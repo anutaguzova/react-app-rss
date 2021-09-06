@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Dashboard from '../pages/Dashboard';
 import About from '../pages/About';
 import Error from '../pages/Error';
+import Details from '../pages/Details';
 
 const navData = [
   {
@@ -17,6 +18,10 @@ const navData = [
   {
     Component: <Error />,
     path: '/error',
+  },
+  {
+    Component: <Details />,
+    path: '/details/:title',
   },
 ];
 
