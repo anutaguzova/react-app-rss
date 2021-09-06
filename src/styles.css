@@ -31,7 +31,7 @@ body {
   margin: 20px;
 }
 
-.content {
+.card-content {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -41,14 +41,14 @@ body {
   transform-style: preserve-3d;
 }
 
-.card:hover .content {
+.card:hover .card-content {
   transform: rotateY(180deg);
   transition: transform 0.5s;
   cursor: pointer;
 }
 
-.front,
-.back {
+.card-content__front,
+.card-content__back {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -57,7 +57,7 @@ body {
   border: 1px solid rgb(23, 34, 23);
 }
 
-.back {
+.card-content__back{
   transform: rotateY(180deg);
 }
 
@@ -66,35 +66,35 @@ body {
   height: 220px;
 }
 
-.icons {
+.card-icons {
   display: flex;
   justify-content: space-around;
   background: gainsboro;
 }
 
-.like,
-.eye {
+.card-icons__like,
+.card-icons__eye {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.like img,
-.eye img {
+.card-icons__like img,
+.card-icons__eye img {
   padding-right: 5px;
 }
 
-.like img:hover,
-.eye img:hover {
+.card-icons__like img:hover,
+.card-icons__eye img:hover {
   cursor: pointer;
 }
 
-.photo {
+.card-photo {
   width: 100%;
   height: 72%;
 }
 
-.map {
+.card-map {
   height: 55px;
 }
 
@@ -106,7 +106,7 @@ body {
   margin: 0 auto;
 }
 
-.searchTerm {
+.search-term {
   width: 100%;
   border: 3px solid rgb(83, 78, 78);
   border-right: none;
@@ -117,11 +117,11 @@ body {
   color: #9dbfaf;
 }
 
-.searchTerm:focus {
+.search-term:focus {
   color: #2d2933;
 }
 
-.searchButton {
+.search-button {
   width: 80px;
   height: 36px;
   border: 1px solid rgb(83, 78, 78);
@@ -133,7 +133,7 @@ body {
   font-size: 20px;
 }
 
-.searchButton:active {
+.search-button:active {
   background: #28ad6f;
   transform: scale(1.1);
   border: none;
