@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useState, useEffect } from 'react';
-import { Article } from '../types';
+import { Article } from '../ArticlesTypes';
 
 interface ArticleProps {
   articles: Article[];
@@ -37,17 +37,22 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangePage, pageSize, on
 
   const handleChoose = (e: ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
-    if (value === '20') {
-      onChangeSize('20');
-      setSize('20');
-    } else if (value === '10') {
-      onChangeSize('10');
-      setSize('10');
-    } else {
-      onChangeSize('5');
-      setSize('5');
+    switch (value) {
+      case '20':
+        onChangeSize('20');
+        setSize('20');
+        break;
+      case '10':
+        onChangeSize('10');
+        setSize('10');
+        break;
+      default:
+        onChangeSize('5');
+        setSize('5');
     }
   };
+
+  const pageCount = [5, 10, 20];
 
   return (
     <div>
@@ -56,9 +61,13 @@ const Articles: FC<ArticleProps> = ({ articles, page, onChangePage, pageSize, on
           <div className="pagination">
             <label className="item" htmlFor="pageSize">
               <select name="pageSize" value={size} onChange={handleChoose} onBlur={handleChoose}>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
+                {pageCount.map((item, index) => {
+                  return (
+                    <option key={index} value={item}>
+                      {item}
+                    </option>
+                  );
+                })}
               </select>
             </label>
             <label htmlFor="input__page">

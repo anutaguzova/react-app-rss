@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { ChangeEvent, FC, useState } from 'react';
 import Articles from '../components/Articles';
 import axios from '../services/api';
-import { Article, Get200Articles, SortType } from '../types';
+import { Article, Get200Articles, SortType } from '../ArticlesTypes';
 
 const API_KEY = '16b312231ce9476ea9b1b986a570563a';
 
@@ -68,7 +68,7 @@ const Dashboard: FC = () => {
               checked={sortBy === SortType.publishedAt}
               onChange={() => setSortBy(SortType.publishedAt)}
             />{' '}
-            publishedAt
+            publication date
           </label>
         </div>
         <div>
