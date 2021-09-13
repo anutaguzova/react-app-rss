@@ -15,7 +15,7 @@ interface Errors {
   birthDate?: string;
   country?: string;
   agree?: boolean;
-  gender?: string;
+  gender: string;
 }
 
 const Form = ({ setFormValues }) => {
@@ -27,19 +27,25 @@ const Form = ({ setFormValues }) => {
   const [gender, setGender] = useState<string>('');
   const [errors, setErrors] = useState({} as Errors);
 
+  const isGenderSelected = (value: string): boolean => gender === value;
+
   useEffect(() => {
     const validate = () => {
       setErrors({}); // сбрасываем ошибки
       if (!agree) {
         setErrors((state) => ({ ...state, agree }));
       }
-      if (firstName === '') {
+      if (!firstName.match(/^([a-zA-Z ]){2,20}$/)) {
         setErrors((state) => ({ ...state, firstName }));
       }
-      if (lastName === '') {
+      if (!firstName.match(/^([a-zA-Z ]){2,20}$/)) {
         setErrors((state) => ({ ...state, lastName }));
       }
-      if (birthDate === '') {
+      if (
+        birthDate === '' ||
+        birthDate >
+          new Date().toLocaleDateString().split('/').reverse().join('-')
+      ) {
         setErrors((state) => ({ ...state, birthDate }));
       }
       if (gender === '') {
@@ -88,8 +94,10 @@ const Form = ({ setFormValues }) => {
           <label className="item" htmlFor="firstName">
             <p>
               Name:
-              {errors?.firstName === '' && (
-                <span className="errors"> * name should be fill</span>
+              {!firstName.match(/^([a-zA-Z ]){2,20}$/) && (
+                <span className="errors">
+                  * Your name should contain only letters(up to 20 chars)
+                </span>
               )}
             </p>
             <input
@@ -104,8 +112,10 @@ const Form = ({ setFormValues }) => {
           <label className="item" htmlFor="lastName">
             <p>
               Surname:
-              {errors?.lastName === '' && (
-                <span className="errors"> * surname should be fill</span>
+              {!lastName.match(/^([a-zA-Z ]){2,20}$/) && (
+                <span className="errors">
+                  * Your surname should contain only letters(up to 20 chars)
+                </span>
               )}
             </p>
             <input
@@ -120,8 +130,18 @@ const Form = ({ setFormValues }) => {
           <label className="item" htmlFor="birthDate">
             <p>
               BirthDate:
+              {birthDate >
+                new Date()
+                  .toLocaleDateString()
+                  .split('/')
+                  .reverse()
+                  .join('-') && (
+                <span className="errors">
+                  * birth date should be fill correct
+                </span>
+              )}
               {errors?.birthDate === '' && (
-                <span className="errors"> * birthdate should be fill</span>
+                <span className="errors"> * birth date should be fill</span>
               )}
             </p>
             <input
@@ -137,7 +157,7 @@ const Form = ({ setFormValues }) => {
             <p>
               Country:
               {errors?.country === 'Choose country...' && (
-                <span className="errors"> * country should be fill</span>
+                <span className="errors"> * country should be choose</span>
               )}
             </p>
             <select
@@ -159,21 +179,27 @@ const Form = ({ setFormValues }) => {
             <p>
               Gender
               {errors?.gender === '' && (
-                <span className="errors"> * gender should be fill</span>
+                <span className="errors"> * gender should be choose</span>
               )}
             </p>
             <input
               type="radio"
               name="gender"
-              value="male"
-              onChange={(e) => setGender(e.target.value)}
+              value="Male"
+              checked={isGenderSelected('Male')}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setGender(e.currentTarget.value)
+              }
             />
             Male
             <input
               type="radio"
               name="gender"
-              value="female"
-              onChange={(e) => setGender(e.target.value)}
+              value="Female"
+              checked={isGenderSelected('Female')}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setGender(e.currentTarget.value)
+              }
             />
             Female
           </label>
