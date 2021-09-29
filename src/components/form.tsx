@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export interface State {
+export interface FormDate {
   firstName: string;
   lastName: string;
   birthDate: string;
@@ -31,7 +31,7 @@ const Form = ({ setFormValues }) => {
 
   useEffect(() => {
     const validate = () => {
-      setErrors({}); // сбрасываем ошибки
+      setErrors({});
       if (!agree) {
         setErrors((state) => ({ ...state, agree }));
       }
@@ -42,13 +42,13 @@ const Form = ({ setFormValues }) => {
         setErrors((state) => ({ ...state, lastName }));
       }
       if (
-        birthDate === '' ||
+        !birthDate ||
         birthDate >
           new Date().toLocaleDateString().split('/').reverse().join('-')
       ) {
         setErrors((state) => ({ ...state, birthDate }));
       }
-      if (gender === '') {
+      if (!gender) {
         setErrors((state) => ({ ...state, gender }));
       }
       if (country === 'Choose country...') {
@@ -69,7 +69,7 @@ const Form = ({ setFormValues }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (Object.keys(errors).length === 0) {
+    if (!Object.keys(errors).length) {
       setFormValues((state: []) => [
         ...state,
         {

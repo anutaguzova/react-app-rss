@@ -1,7 +1,7 @@
-import { State } from './form';
+import { FormDate } from './form';
 
 interface CardProps {
-  Item: State;
+  Item: FormDate;
 }
 
 const Card: React.FC<CardProps> = ({ Item }) => (
